@@ -21,6 +21,17 @@
 - **Framework:** Spring Boot 3.x, Spring Data JPA, Spring WebFlux
 - **Query Option:** QueryDSL (Jakarta)
 - **Databases:** MySQL 8.0, Redis 7.0, MongoDB 6.0 (Docker-driven)
+- 실제 환경과 동일한 구성으로 `@SpringBootTest`를 사용해 Docker로 띄운 DB를 사용한다
+
+---
+## 🧪 테스트 환경 구성 전략
+- 통합 테스트 환경 채택 (@SpringBootTest)
+  - JPA 슬라이스 테스트(@DataJpaTest)는 테스트 종료 후 데이터를 강제로 롤백하고, 내장 메모리 DB(H2)를 강제 사용하여 실제 인덱스 성능 계측에 부적합하다고 판단했습니다. 
+  - 실제 운영 환경의 MySQL 옵티마이저 동작과 실행 계획을 그대로 재현하기 위해 전체 애플리케이션 컨텍스트를 띄우는 통합 테스트 방식을 채택했습니다.
+
+- Docker 기반 인프라 격리 및 데이터 보존 
+  - 로컬 환경에 영향을 주지 않는 독립 실험실을 구축하기 위해 Docker 컨테이너로 MySQL을 격리 가동합니다. 
+  - 이를 통해 일관된 대용량 데이터 베이스라인 위에서 데이터 적재 시간의 낭비 없이, 다양한 인덱스 변경 시나리오를 신속하게 반복 실험할 수 있는 효율적인 테스트 루틴을 확보 합니다.
 
 ---
 
