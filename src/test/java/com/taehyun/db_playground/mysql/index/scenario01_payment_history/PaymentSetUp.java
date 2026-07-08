@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.concurrent.ThreadLocalRandom;
@@ -29,7 +30,7 @@ public final class PaymentSetUp {
 
             jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
                 @Override
-                public void setValues(PreparedStatement ps, int index) throws java.sql.SQLException {
+                public void setValues(PreparedStatement ps, int index) throws SQLException {
                     ps.setLong(1, ThreadLocalRandom.current().nextLong(1, 50_001));
                     ps.setLong(2, ThreadLocalRandom.current().nextLong(10, 5001) * 100);
                     ps.setString(3, getRandomType().name());
