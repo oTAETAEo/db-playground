@@ -1,3 +1,14 @@
 spring:
   application:
     name: db-playground
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/playground?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&rewriteBatchedStatements=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
