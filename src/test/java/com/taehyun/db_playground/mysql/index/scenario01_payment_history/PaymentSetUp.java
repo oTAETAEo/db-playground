@@ -63,8 +63,8 @@ public final class PaymentSetUp {
     }
 
     private static LocalDateTime getRandomDateTime() {
-        long minDay = LocalDateTime.now().minusMonths(6).toEpochSecond(java.time.ZoneOffset.UTC);
-        long maxDay = LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC);
+        long minDay = LocalDateTime.of(2025, 1, 1, 0, 0).toEpochSecond(java.time.ZoneOffset.UTC);
+        long maxDay = LocalDateTime.of(2026, 6, 30, 23, 59).toEpochSecond(java.time.ZoneOffset.UTC);
         long randomDay = ThreadLocalRandom.current().nextLong(minDay, maxDay);
 
         return LocalDateTime.ofEpochSecond(randomDay, 0, java.time.ZoneOffset.UTC);
