@@ -1,6 +1,8 @@
 package com.taehyun.db_playground.mysql.lock.scenario01.service;
 
 import com.taehyun.db_playground.mysql.lock.scenario01.domain.WalletNoLock;
+import com.taehyun.db_playground.mysql.lock.scenario01.domain.WalletOptimistic;
+import com.taehyun.db_playground.mysql.lock.scenario01.repository.WalletOptimisticRepository;
 import com.taehyun.db_playground.mysql.lock.scenario01.repository.WalletNoLockRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import java.util.NoSuchElementException;
 public class WalletServiceImpl implements WalletService {
 
     private final WalletNoLockRepository walletNoLockRepository;
+    private final WalletOptimisticRepository walletOptimisticRepository;
 
     @Override
     @Transactional
@@ -22,6 +25,16 @@ public class WalletServiceImpl implements WalletService {
                 .orElseThrow(NoSuchElementException::new);
 
         walletNoLock.deduct(amount);
+    }
+
+    @Override
+    @Transactional
+    public void decreaseBalanceOptimistic(Long userId, Long amount) {
+
+        WalletOptimistic walletOptimistic = walletOptimisticRepository.findByUserId(userId)
+                .orElseThrow(NoSuchElementException::new);
+
+        walletOptimistic.deduct(amount);
     }
 
 }

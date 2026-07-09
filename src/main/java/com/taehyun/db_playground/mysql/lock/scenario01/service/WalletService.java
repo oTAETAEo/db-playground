@@ -4,4 +4,6 @@ public interface WalletService {
 
     void decreaseBalance(Long userId, Long amount);
 
+    void decreaseBalanceOptimistic(Long userId, Long amount);
+
 }
