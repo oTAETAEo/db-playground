@@ -1,7 +1,7 @@
 package com.taehyun.db_playground.mysql.lock.scenario01.service;
 
-import com.taehyun.db_playground.mysql.lock.scenario01.domain.Wallet;
-import com.taehyun.db_playground.mysql.lock.scenario01.repository.WalletRepository;
+import com.taehyun.db_playground.mysql.lock.scenario01.domain.WalletNoLock;
+import com.taehyun.db_playground.mysql.lock.scenario01.repository.WalletNoLockRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,16 +12,16 @@ import java.util.NoSuchElementException;
 @RequiredArgsConstructor
 public class WalletServiceImpl implements WalletService {
 
-    private final WalletRepository walletRepository;
+    private final WalletNoLockRepository walletNoLockRepository;
 
     @Override
     @Transactional
     public void decreaseBalance(Long userId, Long amount) {
 
-        Wallet wallet = walletRepository.findByUserId(userId)
+        WalletNoLock walletNoLock = walletNoLockRepository.findByUserId(userId)
                 .orElseThrow(NoSuchElementException::new);
 
-        wallet.deduct(amount);
+        walletNoLock.deduct(amount);
     }
 
 }

@@ -7,25 +7,26 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Table(name = "wallets_v1")
+@Table(name = "wallets_no_lock_v1")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Wallet {
+public class WalletNoLock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private Long userId;
 
     private Long balance;
 
-    private Wallet(Long userId, Long balance) {
+    private WalletNoLock(Long userId, Long balance) {
         this.userId = userId;
         this.balance = balance;
     }
 
-    public static Wallet createWallet(Long userId, Long balance){
-        return new Wallet(userId, balance);
+    public static WalletNoLock createWalletNoLock(Long userId, Long balance){
+        return new WalletNoLock(userId, balance);
     }
 
     public void deduct(Long amount) {
