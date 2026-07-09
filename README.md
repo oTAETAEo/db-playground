@@ -59,3 +59,10 @@ com.taehyun.dbplayground/
 └── global/                         # 전역 공통 컴포넌트 (Config, Exception 등)
 ```
 최 하위 폴더에는 `scenarioXX_학습 내용` 의 패키지를 두고 내부 `scenario.md` `report.md` 의 파일을 둔다
+
+---
+
+## Report
+
+### MySQL
+- [대용량 결제 내역 조회 및 복합 인덱스 최적화 실험](src/main/java/com/taehyun/db_playground/mysql/index/scenario01_payment_history/report.md)
