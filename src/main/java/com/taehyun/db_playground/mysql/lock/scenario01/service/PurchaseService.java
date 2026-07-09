@@ -31,4 +31,12 @@ public class PurchaseService {
         paymentHistoryRepository.save(PaymentHistory.createPaymentHistory(userId, amount, itemId, LockType.OPTIMISTIC));
     }
 
+    @Transactional
+    public void purchasePessimistic(Long userId, Long amount, String itemId){
+
+        walletService.decreaseBalancePessimistic(userId, amount);
+
+        paymentHistoryRepository.save(PaymentHistory.createPaymentHistory(userId, amount, itemId, LockType.PESSIMISTIC));
+    }
+
 }
