@@ -16,7 +16,7 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
             "AND p.paymentStatus = 'SUCCESS' " +
             "AND p.createdAt BETWEEN :startCreatedAt AND :endCreatedAt " +
             "ORDER BY p.createdAt DESC")
-    List<Payment> findPaymentsByPeriod(
+    List<Payment> findSuccessPaymentsByPeriod(
             Long userId,
             PaymentType paymentType,
             LocalDateTime startCreatedAt,

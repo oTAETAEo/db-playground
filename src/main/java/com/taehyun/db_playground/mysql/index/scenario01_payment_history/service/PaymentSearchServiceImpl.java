@@ -15,9 +15,9 @@ public class PaymentSearchServiceImpl implements PaymentSearchService{
     private final PaymentRepository paymentRepository;
 
     @Override
-    public List<Payment> getPaymentsByPeriod(Long userId, PaymentType type, LocalDateTime searchStartAt, LocalDateTime searchEndAt) {
+    public List<Payment> getSuccessPaymentsByPeriod(Long userId, PaymentType type, LocalDateTime searchStartAt, LocalDateTime searchEndAt) {
 
-        return paymentRepository.findPaymentsByPeriod(userId, type, searchStartAt, searchEndAt);
+        return paymentRepository.findSuccessPaymentsByPeriod(userId, type, searchStartAt, searchEndAt);
     }
 
 }

@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface PaymentSearchService {
 
-    List<Payment> getPaymentsByPeriod(Long userId, PaymentType type, LocalDateTime searchStartAt, LocalDateTime searchEndAt);
+    List<Payment> getSuccessPaymentsByPeriod(Long userId, PaymentType type, LocalDateTime searchStartAt, LocalDateTime searchEndAt);
 
 }
