@@ -44,7 +44,7 @@ public class WalletServiceImpl implements WalletService {
     @Transactional
     public void decreaseBalancePessimistic(Long userId, Long amount) {
 
-        WalletPessimistic walletPessimistic = walletPessimisticRepository.findByUserId(userId)
+        WalletPessimistic walletPessimistic = walletPessimisticRepository.findByUserIdWithLock(userId)
                 .orElseThrow(NoSuchElementException::new);
 
         walletPessimistic.deduct(amount);
