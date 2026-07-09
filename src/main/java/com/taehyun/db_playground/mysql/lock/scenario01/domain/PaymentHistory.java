@@ -17,18 +17,21 @@ public class PaymentHistory {
 
     private Long userId;
 
+    private String itemId;
+
     private Long amount;
 
     @Enumerated(EnumType.STRING)
     private LockType lockType;
 
-    private PaymentHistory(Long userId, Long amount, LockType lockType) {
+    private PaymentHistory(Long userId, Long amount, String itemId, LockType lockType) {
         this.userId = userId;
         this.amount = amount;
+        this.itemId = itemId;
         this.lockType = lockType;
     }
 
-    public static PaymentHistory createPaymentHistory(Long userId, Long amount, LockType lockType) {
-        return new PaymentHistory(userId, amount, lockType);
+    public static PaymentHistory createPaymentHistory(Long userId, Long amount, String itemId, LockType lockType) {
+        return new PaymentHistory(userId, amount, itemId, lockType);
     }
 }
