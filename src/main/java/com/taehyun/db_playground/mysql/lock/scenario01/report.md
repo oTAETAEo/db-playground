@@ -77,7 +77,7 @@ No Lock 정합성 테스트 결과
 
 #### 원인 분석
 - **FOR UPDATE를 통한 로우 레벨 락(Row-level Lock) 선점**:
-  - WalletPessimisticRepository에서 호출한 findByUserIdWithLock 메서드는 MySQL 엔진에 SELECT ... FOR UPDATE 쿼리를 날립니다. <br> 이 쿼리는 조회하는 동시에 해당 유저의 지갑 레코드(Row)에 다른 트랜잭션이 접근하지 못하도록 배타적 쓰기 락(X-Lock)을 걸어버립니다.
+  - `WalletPessimisticRepository에서` 호출한 `findByUserIdWithLock` 메서드는 MySQL 엔진에 `SELECT ... FOR UPDATE`쿼리를 날립니다. <br> 이 쿼리는 조회하는 동시에 해당 유저의 지갑 레코드(Row)에 다른 트랜잭션이 접근하지 못하도록 배타적 쓰기 락(X-Lock)을 걸어버립니다.
 
 - **스레드 블로킹(Blocking) 메커니즘**:
   - 가장 먼저 도착한 1등 스레드가 락을 획득하고 트랜잭션을 시작하는 순간, 동시에 들이닥친 나머지 99개의 스레드는 예외가 발생하는 것이 아니라 1등 스레드가 연산을 마치고 커밋하여 락을 풀어줄 때까지 DB 문턱에서 대기(Blocking) 상태로 줄을 서게 됩니다.
