@@ -2,6 +2,7 @@ package com.taehyun.db_playground.mysql.index.scenario01.service;
 
 import com.taehyun.db_playground.mysql.index.scenario01.domain.Payment;
 import com.taehyun.db_playground.mysql.index.scenario01.domain.PaymentType;
+import com.taehyun.db_playground.mysql.index.scenario01.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

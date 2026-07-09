@@ -1,4 +1,4 @@
-package com.taehyun.db_playground.mysql.index.scenario01.service;
+package com.taehyun.db_playground.mysql.index.scenario01.repository;
 
 import com.taehyun.db_playground.mysql.index.scenario01.domain.Payment;
 import com.taehyun.db_playground.mysql.index.scenario01.domain.PaymentType;
