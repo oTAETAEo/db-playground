@@ -64,5 +64,8 @@ com.taehyun.dbplayground/
 
 ## Report
 
-### MySQL
-- [대용량 결제 내역 조회 및 복합 인덱스 최적화 실험](src/main/java/com/taehyun/db_playground/mysql/index/scenario01/report.md)
+- ### MySQL
+  - #### index
+    - [대용량 결제 내역 조회 및 복합 인덱스 최적화 실험](src/main/java/com/taehyun/db_playground/mysql/index/scenario01/report.md)
+  - #### lock
+    - [지갑 잔액 차감 동시성 제어 및 락(Lock) 실험](src/main/java/com/taehyun/db_playground/mysql/lock/scenario01/report.md)
