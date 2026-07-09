@@ -1,7 +1,7 @@
-package com.taehyun.db_playground.mysql.index.scenario01_payment_history.service;
+package com.taehyun.db_playground.mysql.index.scenario01.service;
 
-import com.taehyun.db_playground.mysql.index.scenario01_payment_history.domain.Payment;
-import com.taehyun.db_playground.mysql.index.scenario01_payment_history.domain.PaymentType;
+import com.taehyun.db_playground.mysql.index.scenario01.domain.Payment;
+import com.taehyun.db_playground.mysql.index.scenario01.domain.PaymentType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

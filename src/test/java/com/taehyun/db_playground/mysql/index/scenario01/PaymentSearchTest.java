@@ -1,8 +1,8 @@
-package com.taehyun.db_playground.mysql.index.scenario01_payment_history;
+package com.taehyun.db_playground.mysql.index.scenario01;
 
-import com.taehyun.db_playground.mysql.index.scenario01_payment_history.domain.Payment;
-import com.taehyun.db_playground.mysql.index.scenario01_payment_history.domain.PaymentType;
-import com.taehyun.db_playground.mysql.index.scenario01_payment_history.service.PaymentSearchService;
+import com.taehyun.db_playground.mysql.index.scenario01.domain.Payment;
+import com.taehyun.db_playground.mysql.index.scenario01.domain.PaymentType;
+import com.taehyun.db_playground.mysql.index.scenario01.service.PaymentSearchService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

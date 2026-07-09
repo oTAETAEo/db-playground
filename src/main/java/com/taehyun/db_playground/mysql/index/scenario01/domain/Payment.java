@@ -1,4 +1,4 @@
-package com.taehyun.db_playground.mysql.index.scenario01_payment_history.domain;
+package com.taehyun.db_playground.mysql.index.scenario01.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
