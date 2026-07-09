@@ -12,7 +12,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.StopWatch;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class PaymentSearchTest {
@@ -43,6 +46,20 @@ class PaymentSearchTest {
 
         stopWatch.stop();
 
+        assertThat(results).isNotEmpty();
+
+        assertThat(results).allSatisfy(payment -> {
+            assertThat(payment.getUserId()).isEqualTo(targetUserId);
+            assertThat(payment.getPaymentType()).isEqualTo(PaymentType.CARD);
+            assertThat(payment.getPaymentStatus()).isEqualTo("SUCCESS");
+            assertThat(payment.getCreatedAt()).isAfterOrEqualTo(searchStartAt);
+            assertThat(payment.getCreatedAt()).isBeforeOrEqualTo(searchEndAt);
+        });
+
+        assertThat(results).isSortedAccordingTo(
+                Comparator.comparing(Payment::getCreatedAt).reversed()
+        );
+
         measurementResultsPrint(results, stopWatch, "Case 1: No Index 실험 결과");
     }
 
@@ -61,6 +78,20 @@ class PaymentSearchTest {
 
         stopWatch.stop();
 
+        assertThat(results).isNotEmpty();
+
+        assertThat(results).allSatisfy(payment -> {
+            assertThat(payment.getUserId()).isEqualTo(targetUserId);
+            assertThat(payment.getPaymentType()).isEqualTo(PaymentType.CARD);
+            assertThat(payment.getPaymentStatus()).isEqualTo("SUCCESS");
+            assertThat(payment.getCreatedAt()).isAfterOrEqualTo(searchStartAt);
+            assertThat(payment.getCreatedAt()).isBeforeOrEqualTo(searchEndAt);
+        });
+
+        assertThat(results).isSortedAccordingTo(
+                Comparator.comparing(Payment::getCreatedAt).reversed()
+        );
+
         measurementResultsPrint(results, stopWatch, "Case 2: user_id 단일 인덱스 실험 결과");
     }
 
@@ -78,6 +109,20 @@ class PaymentSearchTest {
         var results = paymentSearchService.getSuccessPaymentsByPeriod(targetUserId, PaymentType.CARD, searchStartAt ,searchEndAt);
 
         stopWatch.stop();
+
+        assertThat(results).isNotEmpty();
+
+        assertThat(results).allSatisfy(payment -> {
+            assertThat(payment.getUserId()).isEqualTo(targetUserId);
+            assertThat(payment.getPaymentType()).isEqualTo(PaymentType.CARD);
+            assertThat(payment.getPaymentStatus()).isEqualTo("SUCCESS");
+            assertThat(payment.getCreatedAt()).isAfterOrEqualTo(searchStartAt);
+            assertThat(payment.getCreatedAt()).isBeforeOrEqualTo(searchEndAt);
+        });
+
+        assertThat(results).isSortedAccordingTo(
+                Comparator.comparing(Payment::getCreatedAt).reversed()
+        );
 
         measurementResultsPrint(results, stopWatch, "Case 3: 복합 인덱스 실험 결과");
     }
