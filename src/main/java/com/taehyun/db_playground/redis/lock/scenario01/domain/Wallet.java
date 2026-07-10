@@ -21,12 +21,12 @@ public class Wallet {
     @Column(nullable = false)
     private long balance;
 
-    private Wallet(Long userId, int balance) {
+    private Wallet(Long userId, long balance) {
         this.userId = userId;
         this.balance = balance;
     }
 
-    public static Wallet createWallet(Long userId, int balance){
+    public static Wallet createWallet(Long userId, long balance){
         return new Wallet(userId, balance);
     }
 
