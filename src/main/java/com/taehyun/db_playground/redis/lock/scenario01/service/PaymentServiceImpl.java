@@ -18,15 +18,17 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     @Transactional
-    public void process(Long userId, long amount, String idempotencyKey) {
+    public Long process(Long userId, long amount, String idempotencyKey) {
 
         Wallet wallet = walletRepository.findByUserId(userId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 유저(ID: " + userId + ")의 지갑을 찾을 수 없습니다."));
 
         wallet.deduct(amount);
 
-        paymentTransactionRepository.save(
+        PaymentTransaction savePaymentTransaction = paymentTransactionRepository.save(
                 PaymentTransaction.createPaymentTransaction(userId, amount, idempotencyKey));
+
+        return savePaymentTransaction.getId();
 
     }
 
