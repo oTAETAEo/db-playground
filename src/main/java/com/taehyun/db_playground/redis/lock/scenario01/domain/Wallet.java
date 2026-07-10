@@ -30,7 +30,7 @@ public class Wallet {
         return new Wallet(userId, balance);
     }
 
-    public void deduct(int amount) {
+    public void deduct(long amount) {
 
         if (amount == 0)
             throw new IllegalArgumentException("차감할 금액이 0 일 수 없습니다");
