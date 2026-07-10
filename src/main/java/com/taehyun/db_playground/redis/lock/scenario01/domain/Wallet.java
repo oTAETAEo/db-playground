@@ -32,7 +32,7 @@ public class Wallet {
 
     public long increaseBalance(long money){
 
-        if(money >= 0)
+        if(money <= 0)
             throw new IllegalArgumentException("잔액 증가 돈이 0이거나 음수일 수 없습니다");
 
         balance += money;
