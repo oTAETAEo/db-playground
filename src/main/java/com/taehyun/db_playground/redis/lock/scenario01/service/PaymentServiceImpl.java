@@ -23,7 +23,7 @@ public class PaymentServiceImpl implements PaymentService {
         Wallet wallet = walletRepository.findByUserId(userId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 유저(ID: " + userId + ")의 지갑을 찾을 수 없습니다."));
 
-        wallet.deduct(amount);
+        wallet.balanceDeduct(amount);
 
         PaymentTransaction savePaymentTransaction = paymentTransactionRepository.save(
                 PaymentTransaction.createPaymentTransaction(userId, amount, idempotencyKey));
