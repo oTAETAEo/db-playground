@@ -30,7 +30,7 @@ public class PaymentTransaction {
     private Long userId;
 
     @Column(nullable = false)
-    private int amount;
+    private long totalAmount;
 
     @Column(nullable = false)
     private String idempotencyKey;
@@ -38,15 +38,15 @@ public class PaymentTransaction {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    private PaymentTransaction(Long userId, int amount, String idempotencyKey) {
+    private PaymentTransaction(Long userId, long totalAmount, String idempotencyKey) {
         this.userId = userId;
-        this.amount = amount;
+        this.totalAmount = totalAmount;
         this.idempotencyKey = idempotencyKey;
         this.createdAt = LocalDateTime.now();
     }
 
-    public static PaymentTransaction createPaymentTransaction(Long userId, int amount, String idempotencyKey){
-        return new PaymentTransaction(userId, amount, idempotencyKey);
+    public static PaymentTransaction createPaymentTransaction(Long userId, long totalAmount, String idempotencyKey){
+        return new PaymentTransaction(userId, totalAmount, idempotencyKey);
     }
 
 }
