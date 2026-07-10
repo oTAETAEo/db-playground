@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(
-        name = "redis_scenario_payment_transaction",
+        name = "payment_transaction_v1",
         uniqueConstraints = {
                 @UniqueConstraint(
                         name = "uk_redis_user_idempotency",
