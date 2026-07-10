@@ -17,9 +17,20 @@ services:
     networks:
       - playground-network
 
+  redis:
+    image: redis:7-alpine
+    container_name: playground-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - playground-network
+
 volumes:
   mysql_data:
-  mongo_data:
+  redis_data:
 
 networks:
   playground-network:
