@@ -69,3 +69,7 @@ com.taehyun.dbplayground/
     - [대용량 결제 내역 조회 및 DB 복합 인덱스 최적화 실험 리포트](src/main/java/com/taehyun/db_playground/mysql/index/scenario01/report.md)
   - #### lock
     - [고빈도 백그라운드 금융 연산 환경에서의 DB 락을 통한 지갑 잔액 차감 동시성 제어 및 자산 정합성 실험 리포트](src/main/java/com/taehyun/db_playground/mysql/lock/scenario01/report.md)
+
+- ### Redis
+  - #### lock
+    - [Redis 분산 락을 활용한 최전방 외부 중복 호출 및 연타 방지 (Fail-Fast Idempotency) 실험](src/main/java/com/taehyun/db_playground/redis/lock/scenario01/report.md)
