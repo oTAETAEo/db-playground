@@ -23,7 +23,7 @@
 
 ## 실험 결과 검증
 
-[테스트 파일 이동](file://src/test/java/com/taehyun/db_playground/redis/lock/scenario01/OrderControllerTest.java)
+[테스트 파일 이동](src/test/java/com/taehyun/db_playground/redis/lock/scenario01/OrderControllerTest.java)
 
 #### Case 1: 멱등성 테스트 100개의 요청이 동시에 인입되어도 결제는 딱 1번만 성공해야 한다
 - 동시성 테스트 진행 시 최전방 레디스 방파제가 정상적으로 작동하여 99건의 연타를 완벽하게 차단함.
