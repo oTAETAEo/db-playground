@@ -14,6 +14,10 @@ $$\text{실제 차감된 총 금액 (초기 잔액 - 최종 잔액)} = \text{적
 
 ---
 
+## 실험 결과 검증
+
+[테스트 파일 이동](https://github.com/oTAETAEo/db-playground/blob/b613d48330bda62168ab64a960777b4641087f40/src/test/java/com/taehyun/db_playground/mysql/lock/scenario01/WalletConcurrencyTest.java)
+
 ### Case 1: No Lock (아무런 제어 장치가 없는 동시성 요청)
 
 - 락이 없는 경우 동시성 환경에서의 주문 내역과, 실제 차감된 돈의 정합성이 맞지 않는 문제가 발생한다

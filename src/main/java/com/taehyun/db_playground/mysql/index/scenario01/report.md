@@ -24,7 +24,9 @@
 
 ---
 
-## 4. 단계별 실행 계획(EXPLAIN) 및 상세 분석
+## 4. 실험 결과 검증
+
+[테스트 파일 이동](https://github.com/oTAETAEo/db-playground/blob/c2bd5a5bf2ad7fb334942ccb90f70a4015059e62/src/test/java/com/taehyun/db_playground/mysql/index/scenario01/PaymentSearchTest.java)
 
 ### Case 1: 인덱스가 없는 상태 (No Index)
 
